@@ -34,9 +34,15 @@ languageNames list =
 
 onlyStudents : List { record | name : String, uType : String } -> List String
 onlyStudents list =
-    list
-        |> List.filter (\u -> u.uType == "Student")
-        |> List.map .name
+    List.map
+        (\u ->
+            if u.uType == "Student" then
+                u.name
+
+            else
+                ""
+        )
+        list
 
 
 getVideogameGenres : List Videogame -> List (List String)
