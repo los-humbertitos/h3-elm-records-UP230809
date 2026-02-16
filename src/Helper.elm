@@ -18,7 +18,6 @@ calc x y operation =
     operation x y
 
 
-
 type alias Videogame =
     { title : String
     , releaseYear : Int
@@ -35,15 +34,9 @@ languageNames list =
 
 onlyStudents : List { record | name : String, uType : String } -> List String
 onlyStudents list =
-    List.map
-        (\u ->
-            if u.uType == "Student" then
-                u.name
-
-            else
-                ""
-        )
-        list
+    list
+        |> List.filter (\u -> u.uType == "Student")
+        |> List.map .name
 
 
 getVideogameGenres : List Videogame -> List (List String)
