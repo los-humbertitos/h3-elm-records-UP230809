@@ -39,7 +39,6 @@ onlyStudents list =
         |> List.map .name
 
 
-
 getVideogameGenres : List Videogame -> List (List String)
 getVideogameGenres list =
     List.map .genres list
